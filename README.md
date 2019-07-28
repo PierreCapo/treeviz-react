@@ -4,7 +4,7 @@
 ![David](https://img.shields.io/david/PierreCapo/treeviz-react)
 [![license](https://badgen.now.sh/badge/license/MIT)](./LICENSE)
 
-Treeviz implementation for React
+[Treeviz](https://github.com/PierreCapo/treeviz) implementation for React
 
 ![](https://i.imgur.com/zFKuIgC.gif)
 
