@@ -1,12 +1,94 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import * as React from "react";
+import * as Treeviz from "treeviz";
+import { ExtendedHierarchyPointNode } from "treeviz/dist/typescript/typings";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+type NodeType = ExtendedHierarchyPointNode & {
+  x0: number;
+  y0: number;
+  settings: { nodeWidth: number; nodeHeight: number; duration: number };
+};
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+interface ITreeConfig {
+  data: any[];
+  idKey: string;
+  relationnalField: string;
+  hasFlatData: boolean;
+  nodeWidth: number;
+  nodeHeight: number;
+  mainAxisNodeSpacing: number | "auto";
+  secondaryAxisNodeSpacing: number;
+  renderNode: (node: NodeType) => string | null;
+  nodeColor: (node: NodeType) => string;
+  linkShape: string;
+  linkColor: (node: NodeType) => string;
+  linkWidth: (node: NodeType) => number;
+  onNodeClick: (node: NodeType) => void;
+  onNodeMouseEnter: (node: NodeType) => void;
+  onNodeMouseLeave: (node: NodeType) => void;
+  isHorizontal: boolean;
+  hasPanAndZoom: boolean;
+  duration: number;
+  marginTop: number;
+  marginBottom: number;
+  marginLeft: number;
+  marginRight: number;
+}
+
+export class TreevizReact extends React.Component<Partial<ITreeConfig>> {
+  state = {
+    id: "tree" + Math.floor(Math.random() * 1000000)
+  };
+  componentDidMount() {
+    const {
+      nodeWidth = 80,
+      nodeHeight = 120,
+      mainAxisNodeSpacing = 1.3,
+      renderNode = () => "",
+      onNodeClick = () => undefined,
+      onNodeMouseEnter = () => undefined,
+      onNodeMouseLeave = () => undefined,
+      duration = 700,
+      isHorizontal = true,
+      hasFlatData = true,
+      secondaryAxisNodeSpacing = 1.25,
+      hasPanAndZoom = true,
+      relationnalField = "father",
+      linkWidth = () => 3,
+      linkShape = "orthogonal",
+      linkColor = () => "#dddddd",
+      idKey = "id"
+    } = this.props;
+    // @ts-ignore
+    this.treeviz = Treeviz.create({
+      // @ts-ignore
+      htmlId: this.state.id,
+      idKey,
+      nodeWidth,
+      nodeHeight,
+      mainAxisNodeSpacing,
+      renderNode,
+      onNodeClick,
+      onNodeMouseEnter,
+      onNodeMouseLeave,
+      duration,
+      isHorizontal,
+      hasFlatData,
+      secondaryAxisNodeSpacing,
+      hasPanAndZoom,
+      relationnalField,
+      linkWidth,
+      linkShape,
+      linkColor
+    });
+    // @ts-ignore
+    this.treeviz.refresh(this.props.data);
+  }
+  componentDidUpdate() {
+    // @ts-ignore
+
+    this.treeviz.refresh(this.props.data, this.props);
+  }
+  render() {
+    return <div id={this.state.id} style={{ width: 800, height: 500 }} />;
+  }
+}
