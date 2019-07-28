@@ -1,18 +1,17 @@
 {
   "name": "treeviz-react",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "main": "./dist/index.js",
   "types": "./dist/typescript/index.d.ts",
   "description": "Treeviz implementation for React",
   "license": "MIT",
-  "private": true,
   "author": {
     "name": "pierrecapo",
     "url": "https://twitter.com/i/notifications"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/PierreCapo/react-native-animated-button-textinput.git"
+    "url": "git://github.com/PierreCapo/treeviz-react.git"
   },
   "dependencies": {
     "@types/d3-hierarchy": "^1.1.6",
@@ -21,7 +20,7 @@
     "@types/react": "16.8.23",
     "@types/react-dom": "16.8.5",
     "react-scripts": "3.0.1",
-    "treeviz": "file:../treeviz",
+    "treeviz": "2.0.0",
     "typescript": "3.5.3"
   },
   "scripts": {
