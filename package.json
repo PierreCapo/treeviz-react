@@ -1,8 +1,8 @@
 {
   "name": "treeviz-react",
-  "version": "0.1.2",
+  "version": "0.1.5",
   "main": "./dist/index.js",
-  "types": "./dist/typescript/index.d.ts",
+  "types": "./dist/index.d.ts",
   "description": "Treeviz implementation for React",
   "license": "MIT",
   "author": {

@@ -32,6 +32,8 @@ interface ITreeConfig {
   marginBottom: number;
   marginLeft: number;
   marginRight: number;
+  areaHeight: number;
+  areaWidth: number;
 }
 
 export class TreevizReact extends React.Component<Partial<ITreeConfig>> {
@@ -56,7 +58,9 @@ export class TreevizReact extends React.Component<Partial<ITreeConfig>> {
       linkWidth = () => 3,
       linkShape = "orthogonal",
       linkColor = () => "#dddddd",
-      idKey = "id"
+      idKey = "id",
+      areaHeight = 500,
+      areaWidth = 800
     } = this.props;
     // @ts-ignore
     this.treeviz = Treeviz.create({
@@ -78,7 +82,9 @@ export class TreevizReact extends React.Component<Partial<ITreeConfig>> {
       relationnalField,
       linkWidth,
       linkShape,
-      linkColor
+      linkColor,
+      areaHeight,
+      areaWidth
     });
     // @ts-ignore
     this.treeviz.refresh(this.props.data);
@@ -89,6 +95,11 @@ export class TreevizReact extends React.Component<Partial<ITreeConfig>> {
     this.treeviz.refresh(this.props.data, this.props);
   }
   render() {
-    return <div id={this.state.id} style={{ width: 800, height: 500 }} />;
+    return (
+      <div
+        id={this.state.id}
+        style={{ width: this.props.areaWidth, height: this.props.areaHeight }}
+      />
+    );
   }
 }

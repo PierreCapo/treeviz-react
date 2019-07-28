@@ -42,7 +42,7 @@ var TreevizReact = /** @class */ (function (_super) {
         this.treeviz.refresh(this.props.data, this.props);
     };
     TreevizReact.prototype.render = function () {
-        return <div id={this.state.id} style={{ width: 800, height: 500 }}/>;
+        return React.createElement("div", { id: this.state.id, style: { width: 800, height: 500 } });
     };
     return TreevizReact;
 }(React.Component));
