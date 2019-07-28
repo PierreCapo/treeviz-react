@@ -1,0 +1,14 @@
+.box {
+  -webkit-transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+}
+.box:hover {
+  box-shadow: 0 0 11px rgba(11, 11, 11, 0.4);
+}
+
+html {
+  font-family: Arial;
+}
+
+
+/*# sourceMappingURL=main.css.map*/
