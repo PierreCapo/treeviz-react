@@ -30,7 +30,8 @@ const data_2 = [
 
 const linkShapeOptions = {
   quadraticBeziers: "quadraticBeziers",
-  orthogonal: "orthogonal"
+  orthogonal: "orthogonal",
+  curve: "curve"
 };
 
 stories.add("Treeviz", () => {
@@ -99,7 +100,7 @@ stories.add("Treeviz", () => {
             { true: true, false: false },
             true
           )}
-          linkWidth={node => 5 * node.id}
+          linkWidth={node => 10}
         />
         <div
           style={{

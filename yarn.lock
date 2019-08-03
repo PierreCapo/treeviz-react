@@ -11407,8 +11407,10 @@ tr46@^1.0.1:
   dependencies:
     punycode "^2.1.0"
 
-"treeviz@file:../treeviz":
-  version "1.3.3"
+treeviz@2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/treeviz/-/treeviz-2.1.0.tgz#ee57b7eb51f9daeb37557f1349565aa787ed2d71"
+  integrity sha512-hnVf4mVXS5YYqIhbrjurpGZjqHwOV1U3ThGOrAbRTm3XQSpyXmXUOrW68qR8fiQQKaVk7tDveh4qBxiWRPFIOw==
   dependencies:
     "@types/d3-hierarchy" "^1.1.6"
     "@types/d3-selection" "^1.4.1"

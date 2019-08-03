@@ -19,7 +19,7 @@ interface ITreeConfig {
   secondaryAxisNodeSpacing: number;
   renderNode: (node: NodeType) => string | null;
   nodeColor: (node: NodeType) => string;
-  linkShape: string;
+  linkShape: "orthogonal" | "quadraticBeziers" | "curve" | "";
   linkColor: (node: NodeType) => string;
   linkWidth: (node: NodeType) => number;
   onNodeClick: (node: NodeType) => void;
@@ -37,54 +37,37 @@ interface ITreeConfig {
 }
 
 export class TreevizReact extends React.Component<Partial<ITreeConfig>> {
+  static defaultProps = {
+    nodeWidth: 80,
+    nodeHeight: 120,
+    mainAxisNodeSpacing: 1.3,
+    renderNode: () => "",
+    onNodeClick: () => undefined,
+    onNodeMouseEnter: () => undefined,
+    onNodeMouseLeave: () => undefined,
+    duration: 700,
+    isHorizontal: true,
+    hasFlatData: true,
+    secondaryAxisNodeSpacing: 1.25,
+    hasPanAndZoom: true,
+    relationnalField: "father",
+    linkWidth: () => 3,
+    linkShape: "orthogonal",
+    linkColor: () => "#dddddd",
+    idKey: "id",
+    areaHeight: 500,
+    areaWidth: 800
+  };
   state = {
     id: "tree" + Math.floor(Math.random() * 1000000)
   };
   componentDidMount() {
-    const {
-      nodeWidth = 80,
-      nodeHeight = 120,
-      mainAxisNodeSpacing = 1.3,
-      renderNode = () => "",
-      onNodeClick = () => undefined,
-      onNodeMouseEnter = () => undefined,
-      onNodeMouseLeave = () => undefined,
-      duration = 700,
-      isHorizontal = true,
-      hasFlatData = true,
-      secondaryAxisNodeSpacing = 1.25,
-      hasPanAndZoom = true,
-      relationnalField = "father",
-      linkWidth = () => 3,
-      linkShape = "orthogonal",
-      linkColor = () => "#dddddd",
-      idKey = "id",
-      areaHeight = 500,
-      areaWidth = 800
-    } = this.props;
+    const {} = this.props;
     // @ts-ignore
     this.treeviz = Treeviz.create({
       // @ts-ignore
       htmlId: this.state.id,
-      idKey,
-      nodeWidth,
-      nodeHeight,
-      mainAxisNodeSpacing,
-      renderNode,
-      onNodeClick,
-      onNodeMouseEnter,
-      onNodeMouseLeave,
-      duration,
-      isHorizontal,
-      hasFlatData,
-      secondaryAxisNodeSpacing,
-      hasPanAndZoom,
-      relationnalField,
-      linkWidth,
-      linkShape,
-      linkColor,
-      areaHeight,
-      areaWidth
+      ...this.props
     });
     // @ts-ignore
     this.treeviz.refresh(this.props.data);
