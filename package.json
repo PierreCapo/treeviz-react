@@ -1,6 +1,6 @@
 {
   "name": "treeviz-react",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "description": "Treeviz implementation for React",
@@ -20,7 +20,7 @@
     "@types/react": "16.8.23",
     "@types/react-dom": "16.8.5",
     "react-scripts": "3.0.1",
-    "treeviz": "2.1.0",
+    "treeviz": "2.1.1",
     "typescript": "3.5.3"
   },
   "scripts": {
