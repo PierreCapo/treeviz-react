@@ -11407,10 +11407,10 @@ tr46@^1.0.1:
   dependencies:
     punycode "^2.1.0"
 
-treeviz@2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/treeviz/-/treeviz-2.1.1.tgz#f13df98d70b66275dde667e108e337247956029c"
-  integrity sha512-qym/os9218br/UOzMZTBPKgwGyOuuhEtxej70YhUBJtpTfhfL/MHnGUWrvIT42aAUGAxUE/W2yq2jAFhQ5RZIQ==
+treeviz@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/treeviz/-/treeviz-2.0.0.tgz#0f93ec6828ddea31ed85e327e2772c472efcbe91"
+  integrity sha512-ZEiEUj/1qSTilhGxHDO5WeiC7vhA+6jt4Fzpukjua+adlNB5Do3fkOhPqv8JDg+869i5riWU5E4ubtQwM2dZgg==
   dependencies:
     "@types/d3-hierarchy" "^1.1.6"
     "@types/d3-selection" "^1.4.1"
